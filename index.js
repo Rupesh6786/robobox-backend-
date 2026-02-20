@@ -65,28 +65,28 @@ const razorpayInstance = new Razorpay({
 
 /*-- production db handles -*/
 
-// const pool = mysql.createPool({
-//   host: 'srv1552.hstgr.io',
-//   user: 'u217412984_products',
-//   password: 'Robobox@123',
-//   database: 'u217412984_Products',
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0
-// });
-
-
-/* -- test local mysql db handle -- */
 const pool = mysql.createPool({
-  host: 'localhost',        // Your local MySQL server
-  port: 3307,
-  user: 'root',             // Default MySQL username (change if needed)
-  password: 'root',             // Use your MySQL password if set
-  database: 'u217412984_Products', // The local database you created
+  host: 'srv2203.hstgr.io',
+  user: 'u827919021_products',
+  password: 'Robobox@Parth12345',
+  database: 'u827919021_Products',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
+
+
+/* -- test local mysql db handle -- */
+// const pool = mysql.createPool({
+//   host: 'localhost',        // Your local MySQL server
+//   port: 3306,
+//   user: 'root',             // Default MySQL username (change if needed)
+//   password: 'root',             // Use your MySQL password if set
+//   database: 'u217412984_Products', // The local database you created
+//   waitForConnections: true,
+//   connectionLimit: 10,
+//   queueLimit: 0
+// });
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -401,10 +401,10 @@ app.post('/api/adminlogin',async (req, res) => {
   const { username, password } = req.body;
   try {
     const adminpool = mysql.createPool({
-      host: 'srv1552.hstgr.io',
-      user: 'u217412984_Admin',
-      database: 'u217412984_Admins',
-      password: 'Robobox@123'
+      host: 'srv2203.hstgr.io',
+      user: 'u827919021_Admin',
+      database: 'u827919021_Admins',
+      password: 'Robobox@Parth12345'
     });
 
     const [admins] = await adminpool.query('SELECT * FROM admin WHERE email = ? AND password = ?', [username, password]);
@@ -1190,7 +1190,7 @@ const pool2 = mysql.createPool({
   
   database: 'u217412984_student_data',
   user: 'u217412984_student_data',
-  password: 'Robobox@123'
+  password: 'Robobox@Parth12345'
 });
 
 
